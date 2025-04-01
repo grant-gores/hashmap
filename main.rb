@@ -1,9 +1,6 @@
 require_relative './lib/hashmap.rb'
 
-# Create an instance of the HashMap with load factor 0.75
-test = HashMap.new(16, 0.75)
-
-# Populate the hash map
+test = HashMap.new
 test.set('apple', 'red')
 test.set('banana', 'yellow')
 test.set('carrot', 'orange')
@@ -17,32 +14,22 @@ test.set('jacket', 'blue')
 test.set('kite', 'pink')
 test.set('lion', 'golden')
 
-# Check length and load factor (should be close to 0.75)
-puts "Length before expanding: #{test.length}"
-puts "Capacity before expanding: #{test.instance_variable_get(:@capacity)}"
+p test.size
 
-# Overwrite some existing nodes
-test.set('apple', 'green')
-test.set('banana', 'brown')
+test.remove('dog')
 
-# Check length again (should be same as before)
-puts "Length after overwriting: #{test.length}"
+p test.size
 
-# Add a new item to trigger a resize
-test.set('moon', 'silver')
+test.set('pumpkin', 'orange')
 
-# Check if the load factor is below 0.75 after resize
-puts "Length after resizing: #{test.length}"
-puts "Capacity after resizing: #{test.instance_variable_get(:@capacity)}"
+p test.get('pumpkin')
 
-# Test other methods
-puts "Get 'apple': #{test.get('apple')}"
-puts "Has 'banana': #{test.has?('banana')}"
-puts "Remove 'carrot': #{test.remove('carrot')}"
-puts "All keys: #{test.keys}"
-puts "All values: #{test.values}"
-puts "All entries: #{test.entries}"
+p test.keys
 
-# Clear the hash map and check if it's empty
+p test.values
+
+p test.entries
+
 test.clear
-puts "Length after clear: #{test.length}"
+
+p test.size
