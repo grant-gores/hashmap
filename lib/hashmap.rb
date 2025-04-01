@@ -17,7 +17,7 @@ class HashMap
         key.each_char { |char| hash_code = prime_number * hash_code + char.ord }
            
         hash_code
-      end
+    end
 
     def set(key, value)
         index= hash(key) % @capacity
@@ -59,7 +59,7 @@ class HashMap
         old_buckets.each do |bucket|
           bucket.to_a.each { |key, value| set(key, value) }
         end
-      end
+    end
       
 
     def length
@@ -81,7 +81,7 @@ class HashMap
           end
         end
         key_array
-      end
+    end
 
     def values
         value_array = []
@@ -105,6 +105,6 @@ class HashMap
           end
         end
         entries_array
-      end
+    end
         
 end
